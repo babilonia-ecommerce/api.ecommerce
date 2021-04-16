@@ -24,42 +24,40 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario
  */
 @MappedSuperclass
-@Table(name = "ciudades", catalog = "babilonia_center", schema = "public")
+@Table(name = "marcas", catalog = "babilonia_center", schema = "public")
 @XmlRootElement
-public class City implements Serializable {
+public class Brand implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_ciudad", nullable = false)
-    private Integer idCiudad;
+    @Column(name = "id_marca", nullable = false)
+    private Integer idMarca;
     @Basic(optional = false)
     @Column(name = "descripcion", nullable = false, length = 80)
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCiudad")
-    private Collection<Employee> employeeCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCiudad")
-    private Collection<Provider> providerCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMarca")
+    private Collection<Product> productCollection;
 
-    public City() {
+    public Brand() {
     }
 
-    public City(Integer idCiudad) {
-        this.idCiudad = idCiudad;
+    public Brand(Integer idMarca) {
+        this.idMarca = idMarca;
     }
 
-    public City(Integer idCiudad, String descripcion) {
-        this.idCiudad = idCiudad;
+    public Brand(Integer idMarca, String descripcion) {
+        this.idMarca = idMarca;
         this.descripcion = descripcion;
     }
 
-    public Integer getIdCiudad() {
-        return idCiudad;
+    public Integer getIdMarca() {
+        return idMarca;
     }
 
-    public void setIdCiudad(Integer idCiudad) {
-        this.idCiudad = idCiudad;
+    public void setIdMarca(Integer idMarca) {
+        this.idMarca = idMarca;
     }
 
     public String getDescripcion() {
@@ -71,38 +69,29 @@ public class City implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Employee> getEmployeeCollection() {
-        return employeeCollection;
+    public Collection<Product> getProductCollection() {
+        return productCollection;
     }
 
-    public void setEmployeeCollection(Collection<Employee> employeeCollection) {
-        this.employeeCollection = employeeCollection;
-    }
-
-    @XmlTransient
-    public Collection<Provider> getProviderCollection() {
-        return providerCollection;
-    }
-
-    public void setProviderCollection(Collection<Provider> providerCollection) {
-        this.providerCollection = providerCollection;
+    public void setProductCollection(Collection<Product> productCollection) {
+        this.productCollection = productCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCiudad != null ? idCiudad.hashCode() : 0);
+        hash += (idMarca != null ? idMarca.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof City)) {
+        if (!(object instanceof Brand)) {
             return false;
         }
-        City other = (City) object;
-        if ((this.idCiudad == null && other.idCiudad != null) || (this.idCiudad != null && !this.idCiudad.equals(other.idCiudad))) {
+        Brand other = (Brand) object;
+        if ((this.idMarca == null && other.idMarca != null) || (this.idMarca != null && !this.idMarca.equals(other.idMarca))) {
             return false;
         }
         return true;
@@ -110,7 +99,7 @@ public class City implements Serializable {
 
     @Override
     public String toString() {
-        return "py.edu.utic.entities.City[ idCiudad=" + idCiudad + " ]";
+        return "py.edu.utic.entities.Brand[ idMarca=" + idMarca + " ]";
     }
     
 }
