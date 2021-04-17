@@ -6,12 +6,13 @@
 package py.edu.utic.api.ecommerce.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Usuario
  */
-@MappedSuperclass
+@Entity
 @Table(name = "pedido_compras_detalle", catalog = "babilonia_center", schema = "public")
 @XmlRootElement
 public class PurchaseRequestDetail implements Serializable {

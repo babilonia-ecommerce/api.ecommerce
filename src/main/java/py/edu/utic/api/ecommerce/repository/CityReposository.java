@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import py.edu.utic.api.ecommerce.entities.City;
 
 @RepositoryRestResource(collectionResourceRel = "cities", path = "cities")
-public interface CityReposository extends PagingAndSortingRepository<City, Long> {
+public interface CityReposository extends PagingAndSortingRepository<City, Integer> {
 
 }
