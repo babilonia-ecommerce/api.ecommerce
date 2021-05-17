@@ -1,0 +1,3 @@
+- Spring boot 
+- Spring Data - Todo lo que tenga que ver con la capa de acceso a datos
+- Open API, interface para el api desde la web
